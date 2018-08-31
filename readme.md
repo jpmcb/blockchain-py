@@ -15,5 +15,5 @@ A simple, Python blockchain API. This blockchain can run on your personal comput
 `/nodes/resolve` : Resolves various block chains and the mined blocks within them
 
 
-Inspiration from Daniel van Flymen[https://hackernoon.com/learn-blockchains-by-building-one-117428612f46]
+Inspiration from [Daniel van Flymen](https://hackernoon.com/learn-blockchains-by-building-one-117428612f46)
 
