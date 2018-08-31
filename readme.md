@@ -4,9 +4,13 @@ A simple, Python blockchain API. This blockchain can run on your personal comput
 
 Routes:
 `/mine` : Mines a new block into the chain. Reterns a receipt with proof of work
+
 `chain` : Returns the entire blockchain
+
 `/transaction/new` : Enters a new "transaction" from a sender address and enters it into the block queue. The next block that is mined will hold these transactions
+
 `/nodes/register` : Registers a address with the server hosting the blockchain
+
 `/nodes/resolve` : Resolves various block chains and the mined blocks within them
 
 
