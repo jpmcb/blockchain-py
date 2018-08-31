@@ -2,7 +2,8 @@
 ----------
 A simple, Python blockchain API. This blockchain can run on your personal computer, a server, or anywhere. Nodes may be registered and the chain will be resolved among the various chains. `GET` requests may be made to the server running the API to mine blocks are return proof of work.
 
-Routes:
+#### API Routes:
+
 `/mine` : Mines a new block into the chain. Reterns a receipt with proof of work
 
 `chain` : Returns the entire blockchain
