@@ -61,6 +61,7 @@ class Blockchain:
     def proof_of_work(self, last):
         """
         Proof of work algorithm
+        :param last: <hash> the previous hash from the previous block
         """
 
         proof = 0
@@ -72,6 +73,7 @@ class Blockchain:
     def register_node(self, address):
         """
         Adds a new address to the current list of registered addresses
+        :param address: <str> The address to be added to the adjacent node list
         """
 
         parsed_url = urlparse(address)
@@ -80,6 +82,7 @@ class Blockchain:
     def valid_chain(self, chain):
         """
         determines if a given chain is valid
+        :param chain: <list> the chain to be validated
         """
 
         last_block = chain[0]
@@ -138,6 +141,7 @@ class Blockchain:
     def valid_proof(last, proof):
         """ 
         Validates the previous proof
+        :param proof: <int> The proof of work
         """
 
         guess = f'{last}{proof}'.encode()
@@ -150,23 +154,39 @@ class Blockchain:
 
     @staticmethod
     def hash(block):
-        # hashes a block's information
+        """
+        Hashes a block's information
+        :param block: <Block> The block to be hashed
+        """
     
         block_string = json.dumps(block, sort_keys=True).encode()
         return hashlib.sha256(block_string).hexdigest()
 
     @property
     def last_block(self):
-        # returns the last block in the chain
+        """
+        Returns the last block in the chain
+        """
         
         return self.chain[-1]
 
 
+"""
+----------
+Set up the Flask app
+----------
+"""
 app = Flask(__name__)
 
 node_identifier = str(uuid4()).replace('-', '')
 
 blockchain = Blockchain()
+
+"""
+----------
+Flask app routes
+----------
+"""
 
 @app.route('/mine', methods=['GET'])
 def mine():
